@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Logika</string>
+    <string name="left"><![CDATA[<--]]></string>
+    <string name="x">X</string>
+    <string name="up">^</string>
+    <string name="down">v</string>
+    <string name="right"><![CDATA[-->]]></string>
+    <string name="fix1">Fix</string>
+    <string name="click1">Click =</string>
+    <string name="twist2">Twist/</string>
+    <string name="duble2">Duble</string>
+    <string name="click2">Click =</string>
+    <string name="click_click">Click= Click=</string>
+    <string name="fix_twist">Fix Twist/</string>
+
+    <string name="todo">TODO</string>
+    <string name="todo1">TODO</string>
+    <string name="todo2">TODO</string>
+    <string name="todo3">TODO</string>
+
+    <string name="fill_the">Fill this</string>
+    <string name="square">square</string>
+    <string name="with">with</string>
+    <string name="schap">schap</string>
+    <string name="es">es</string>
+    <string name="know">Know</string>
+    <string name="_4_basic">4 basic</string>
+    <string name="schem">schem</string>
+
+    <string name="long_one">Long One</string>
+
+    <string name="_4_basi">4 basi</string>
+    <string name="c">c</string>
+
+    <string name="line2_up"><font size="10">^</font>\n\<font size="10">|</font></string>
+    <string name="line2_down"><font size="10">|</font>\n\<font size="10">v</font></string>
+    <string name="mirror">.     . Mirror</string>
+
+</resources>
