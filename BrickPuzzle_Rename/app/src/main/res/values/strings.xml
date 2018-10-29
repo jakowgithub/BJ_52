@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="app_name">BrickPuzzle</string>
+    <string name="twist">twist</string>
+    <string name="speed">speed</string>
+    <string name="start">START</string>
+    <string name="pause">PAUSE</string>
+    <string name="left">left</string>
+    <string name="right">right</string>
+    <string name="cur">Cur</string>
+    <string name="_6">6</string>
+    <string name="_2">2</string>
+    <string name="Strilka1"><![CDATA[=>]]></string>
+    <string name="_3">3</string>
+    <string name="boll">Boll</string>
+    <string name="Strilka2"><![CDATA[=>]]></string>
+    <string name="max">Max</string>
+    <string name="line">Line</string>
+    <string name="_1">1</string>
+    <string name="Striklka3"><![CDATA[=>]]></string>
+
+</resources>
