@@ -18,20 +18,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class MainActivity extends AppCompatActivity {
 
     private byte xEmpty, yEmpty;
-
     private int pole[][] = new int [4][4];
-
     TextView[][] poleVidime = new TextView[4][4];
-
     Button buttonNew, buttonSave;
-
     final int colirFishki = 0xFF2196F3;
-
     private Map <String, String> kartkaRN = new HashMap<>();
-
     MediaPlayer sound;
 
     @Override
@@ -118,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             byte a = random_0_3();
             byte b = random_0_3();
 
-            if (0 == pole[a][b])   pole[a][b] = n;
+            if (0 == pole[a][b])  pole[a][b] = n;
 
             else {
                 if (fromFirst){
@@ -130,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                         for (byte j = 0; j < 4; j++) {
 
                             if (pole[i][j] == 0){
+
                                 pole[i][j] = n;
                                 fromFirst=false;
                                 break;
@@ -142,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                         for (byte j = 3; j >= 0; j--) {
 
                             if (pole[i][j] == 0) {
+
                                 pole[i][j]=n;
                                 fromFirst=true;
                                 break;
@@ -226,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //vidrizav point ta pribirau probilj
                     String point = r2.substring(r2.indexOf(" ") + 1, r2.length()).trim();
+
                     kIP.put(imya, point);
                 }}
             fileInputStream.close();
@@ -274,12 +273,16 @@ private int pereverkaKinezGri(){
 
             for (byte j = 0; j < 4; j++) {
 
-                    if (0==i)  if ((i+j+1) != pole [i] [j]) return 0;
-                    if (1==i)  if ((i+j+4) != pole [i] [j]) return 0;
-                    if (2==i)  if ((i+j+7) != pole [i] [j]) return 0;
-                    if ((3==i)&&(j!=3))  if ((i+j+10)!= pole [i] [j]) return 0;
+                if   ((3==i)&&(3==j)) {
+
+                    if (0!= pole [3] [3])
+                        return 0;
+                }
+                else {
+                    if ((4*i+j+1) != pole [i] [j])
+                        return 0;
+                }
             } }
       return 5;
     }
-
 }
