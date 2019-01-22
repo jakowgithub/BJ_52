@@ -7,7 +7,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -17,8 +16,6 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -223,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                     String imya = r2.substring(0, r2.indexOf(" ")).trim();
 
                     //vidrizav point ta pribirau probilj
-                    String point = r2.substring(r2.indexOf(" ") + 1, r2.length()).trim();
+                    String point = r2.substring(r2.indexOf(" ") + 1).trim();
 
                     kIP.put(imya, point);
                 }}
@@ -273,14 +270,9 @@ private int pereverkaKinezGri(){
 
             for (byte j = 0; j < 4; j++) {
 
-                if   ((3==i)&&(3==j)) {
-
-                    if (0!= pole [3] [3])
-                        return 0;
+                if ((3==i)&&(3==j)){ if (0!= pole [3] [3]) return 0;
                 }
-                else {
-                    if ((4*i+j+1) != pole [i] [j])
-                        return 0;
+                else{     if ((4*i+j+1) != pole [i] [j])    return 0;
                 }
             } }
       return 5;
