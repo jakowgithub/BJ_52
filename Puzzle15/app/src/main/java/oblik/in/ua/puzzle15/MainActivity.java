@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
                 poleVidime[i][j].setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) { MainActivity.this.onClickPoleVidime(k, m); }});
+                    public void onClick(View v) {MainActivity.this.onClickPoleVidime(k, m);}
+                });
             } }
 
         buttonNew = findViewById(R.id.buttonNew);
@@ -181,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
 
            if (5 == pereverkaKinezGri()) {
 
-               sound = MediaPlayer.create(this,R.raw.wjcmh);
+               sound = MediaPlayer.create(this, R.raw.wjcmh);
                sound.start();
         }
     }
@@ -270,9 +271,10 @@ private int pereverkaKinezGri(){
 
             for (byte j = 0; j < 4; j++) {
 
-                if ((3==i)&&(3==j)){ if (0!= pole [3] [3]) return 0;
+                if ((3==i)&&(3==j)){
+                    if (0!= pole [3] [3]) return 0;
                 }
-                else{     if ((4*i+j+1) != pole [i] [j])    return 0;
+                else{ if ((4*i+j+1) != pole [i] [j])  return 0;
                 }
             } }
       return 5;

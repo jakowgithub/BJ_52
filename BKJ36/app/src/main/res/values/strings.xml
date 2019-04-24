@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BKJ36</string>
+
+    <string name="player">PLAYER</string>
+    <string name="next">NEXT</string>
+    <string name="stop">STOP</string>
+    <string name="computer">COMPUTER</string>
+    <string name="user">USER</string>
+    <string name="newgame">NEW</string>
+
+</resources>

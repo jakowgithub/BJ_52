@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorPolya">#fff59d</color>
+    <color name="color0">#FFFF00</color>
+    <color name="color1">#64dd17</color>
+    <color name="color2">#ff8f00</color>
+    <color name="color3">#90a4ae</color>
+    <color name="color4">#f44336</color>
+    <color name="color5">#2196F3</color>
+    <color name="color6">#C2185B</color>
+    <color name="color7">#e040fb</color>
+    <color name="color8">#4CAF50</color>
+    <color name="color9">#ff6f00</color>
+    <color name="colorGreenDeep">#43A047</color>
+    <color name="colorBackground">#ffbb33</color>
+
+</resources>
