@@ -233,6 +233,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/compResult2"
+        android:layout_width="84dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/border"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textViewUser"
         android:layout_width="84dp"
         android:layout_height="22dp"
@@ -255,13 +266,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewInfo"
-        android:layout_width="168dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="117dp"
-        android:layout_marginTop="184dp"
+        android:id="@+id/userResult2"
+        android:layout_width="84dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/border"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewInfo"
+        android:layout_width="168dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="154dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewInfo2"
+        android:layout_width="168dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="190dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="TOTAL"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp" />
 
 </android.support.constraint.ConstraintLayout>
