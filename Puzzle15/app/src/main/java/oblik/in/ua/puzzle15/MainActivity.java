@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
                 poleVidime[i][j] = findViewById(curID);
 
-                poleVidime[i][j].setOnClickListener(new View.OnClickListener() {
+                poleVidime[i][j].setOnClickListener(
+                        new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {MainActivity.this.onClickPoleVidime(k, m);}
                 });
