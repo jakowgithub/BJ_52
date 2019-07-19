@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BJ52</string>
+
+    <string name="next">NEXT</string>
+    <string name="stop">STOP</string>
+    <string name="computer">COMPUTER</string>
+    <string name="user">USER</string>
+    <string name="total">TOTAL</string>
+
+    <string name="hello">HELLO WORD</string>
+</resources>

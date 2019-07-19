@@ -23,5 +23,5 @@ public class Card {
     public void setValueCard(int valueCard) { this.valueCard = valueCard; }
 
     @Override
-    public String toString() { return " "+ nameCard + suitCard; }
+    public String toString() { return nameCard + suitCard; }
 }

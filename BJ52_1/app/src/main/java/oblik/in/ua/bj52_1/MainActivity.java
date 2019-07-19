@@ -67,16 +67,17 @@ public class MainActivity extends AppCompatActivity {
         textViewInfo = findViewById(R.id.textViewInfo);
         buttonNext = findViewById(R.id.buttonNext);
         buttonStop = findViewById(R.id.buttonStop);
-        View view = this.getWindow().getDecorView();
-        view.setBackgroundColor(0xff43A047);
+
+        View view1 = this.getWindow().getDecorView();
+        view1.setBackgroundColor(0xff43A047);
 
         resultTotal.putAll(this.readFile());
 
         if (resultTotal.get(str4)!=null &&
             resultTotal.get(str5)!=null){
 
-            totalComp = Integer.parseInt(Objects.requireNonNull(resultTotal.get(str4).trim()));
-            totalUser = Integer.parseInt(Objects.requireNonNull(resultTotal.get(str5).trim()));
+            totalComp = Integer.parseInt(Objects.requireNonNull(resultTotal.get(str4)));
+            totalUser = Integer.parseInt(Objects.requireNonNull(resultTotal.get(str5)));
         }
 
         compTotal.setText(Objects.requireNonNull(resultTotal.get(str4)));
@@ -207,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
         } }
     private Map <String, String> readFile(){
 
-        //kIP - kartka im`ya-point
         Map <String, String> kIP=new HashMap<>();
 
         try {
