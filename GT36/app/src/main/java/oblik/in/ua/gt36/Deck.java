@@ -16,20 +16,20 @@ public class Deck {
         for (int i=0; i<9; i++){
 
             String name;
-            int value;
+            int value, valueGT36;
 
             switch (i){
-                case 0: name = "6";  value=6; break;
-                case 1: name = "7";  value=7; break;
-                case 2: name = "8";  value=8; break;
-                case 3: name = "9";  value=9; break;
-                case 4: name = "10"; value=10;break;
-                case 5: name = "J";  value=2; break;
-                case 6: name = "D";  value=3; break;
-                case 7: name = "K";  value=4; break;
-                case 8: name = "A";  value=11;break;
+                case 0: name = "6";  value=6; valueGT36=0; break;
+                case 1: name = "7";  value=7; valueGT36=0; break;
+                case 2: name = "8";  value=8; valueGT36=0; break;
+                case 3: name = "9";  value=9; valueGT36=0; break;
+                case 4: name = "10"; value=10;valueGT36=10;break;
+                case 5: name = "J";  value=2; valueGT36=2;break;
+                case 6: name = "D";  value=3; valueGT36=3;break;
+                case 7: name = "K";  value=4; valueGT36=4;break;
+                case 8: name = "A";  value=11;valueGT36=11;break;
 
-                default: name = "errorName"; value=0; break;
+                default: name = "errorName"; value=0; valueGT36=0; break;
             }
             for (int j=0; j<4; j++){
 
@@ -43,7 +43,7 @@ public class Deck {
 
                     default: suit = "errorSuit"; break;
                 }
-                Card card = new Card(name, suit, value);
+                Card card = new Card(name, suit, value, valueGT36);
                 initialDeck.add(card);
             } }
 

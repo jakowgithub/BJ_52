@@ -14,9 +14,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity {
     private static int userBall = 0, computerBall=0,
@@ -24,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
                        counterTrumpUser=0,
                        counterTrumpComputer=0;
     private static boolean [] choiceFlag = new boolean[4];
-    private static boolean userTurnFlag = true;
+    private static boolean userTurnFlag = true, takeComputerFlag= false;
     final String str1 = "Computer winn !";
     final String str2 = "User winn !";
     final String str3 = "Balance !";
@@ -41,10 +44,18 @@ public class MainActivity extends AppCompatActivity {
     private static ArrayList<Card> cardsUserCurrent = new ArrayList<>(4);
     private static ArrayList <Card> cardsCopmputerCurrent = new ArrayList<>(4);
     private static ArrayList<Card> cardsChoiceUser = new ArrayList<>(4);
-    private static ArrayList <Card> cardsChoiceCopmputer = new ArrayList<>(4);
 
-    private static ArrayList<Card> cardsUserTake = new ArrayList<>(36);
-    private static ArrayList<Card> cardsComputerTake = new ArrayList<>(36);
+    private static List<Card> sortedCardsChoiceUser = new ArrayList<>(4);
+    private static List<Card> sortedCardsUserCurrent = new ArrayList<>(4);
+    private static List <Card> sortedCardsCopmputerCurrent = new ArrayList<>(4);
+
+    private static ArrayList <Card> cardsTakeUser = new ArrayList<>(4);
+    private static ArrayList <Card> cardsTakeComputer = new ArrayList<>(4);
+    private static ArrayList <Card> cardsGiveBackUser = new ArrayList<>(4);
+    private static ArrayList <Card> cardsGiveBackComputer = new ArrayList<>(4);
+
+    private static ArrayList<Card> cardsUserTakeAll = new ArrayList<>(36);
+    private static ArrayList<Card> cardsComputerTakeAll = new ArrayList<>(36);
     private static Map<String, String> resultTotal = new HashMap<>();
     private static Deck deck;
     private static Card cardTrump;
@@ -109,11 +120,23 @@ public class MainActivity extends AppCompatActivity {
             cardsUserCurrent.add(deck.getShuffleDeck().pollFirst());
             this.showCardUser(i, cardsUserCurrent.get(i).toString());
             cardsCopmputerCurrent.add(deck.getShuffleDeck().pollFirst());
+            this.showCardComputer(i, cardsCopmputerCurrent.get(i).toString());
         }
         //showTramp
         cardTrump = deck.getShuffleDeck().pollFirst();
         buttonStop.setText( cardTrump.toString());
+        //increase valueCard = +30, if it is trump
+        for (byte i = 0; i < 4; i++) {
+            if (cardsUserCurrent.get(i).getSuitCard().equals(cardTrump.getSuitCard()))
+                cardsUserCurrent.get(i).setValueCard(cardsUserCurrent.get(i).getValueCard()+30);
 
+            if (cardsCopmputerCurrent.get(i).getSuitCard().equals(cardTrump.getSuitCard()))
+                cardsCopmputerCurrent.get(i).setValueCard(cardsCopmputerCurrent.get(i).getValueCard()+30);
+        }
+        deck.getShuffleDeck().forEach(card -> {
+            if (card.getSuitCard().equals(cardTrump.getSuitCard()))
+                card.setValueCard(card.getValueCard()+30);
+        });
     }
     public void clickUserCard (int k, Deck deck){
 
@@ -202,13 +225,42 @@ public class MainActivity extends AppCompatActivity {
 
                 if (userTurnFlag){
                     //turn user
-                    for (Card cardChoisUser: cardsChoiceUser){
-                    for (Card cardCopmputerCurrent: cardsCopmputerCurrent){
-                        if (cardCopmputerCurrent.getSuitCard().equals(cardTrump.getSuitCard())) counterTrumpComputer++;
-                       // if (){}
-                    }
+                    sortedCardsChoiceUser = cardsChoiceUser
+                            .stream()
+                            .sorted(Comparator
+                                    .comparing(Card::getValueCard)
+                                    .reversed())
+                            .collect(Collectors.toList());
+                    sortedCardsCopmputerCurrent = cardsCopmputerCurrent
+                             .stream()
+                             .sorted(Comparator.comparing(Card::getValueCard))
+                             .collect(Collectors.toList());
 
-                }
+                    for (Card cardChoisUser: sortedCardsChoiceUser){
+
+                       for (Card cardCopmputerCurrent: sortedCardsCopmputerCurrent){
+
+
+                        if ((cardChoisUser.getSuitCard().equals(cardCopmputerCurrent.getSuitCard())
+                             && cardChoisUser.getValueCard() < cardCopmputerCurrent.getValueCard())
+                                ||
+                           (!(cardChoisUser.getSuitCard().equals(cardTrump.getSuitCard()))
+                             &&(cardCopmputerCurrent.getSuitCard().equals(cardTrump.getSuitCard())))
+                        ){
+                            takeComputerFlag = true;
+                            userTurnFlag = false;
+
+
+                        }
+                        else {
+                            takeComputerFlag = false;
+                            userTurnFlag = true;
+                            break;
+                        }
+
+                       }
+
+                    }
                 }
 
                 else {
