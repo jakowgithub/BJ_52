@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
         if (i>=0 && i<4 && text!=null){
             this.computerCard [i].setText(text);
         }}
+
     public  void clickNext(Deck deck){
 // check (cardsUserCurrent &&  cardsCopmputerCurrent) is empty, is choice card
         if(!cardsUserCurrent.isEmpty() &&
@@ -255,13 +256,14 @@ public class MainActivity extends AppCompatActivity {
                             cardsGiveBackUser.add(cardChoisUser);
                             //cardChoisUser cann`t deleted an sortedCardsChoiceUser
                             // in a loop  for (Card cardChoisUser: sortedCardsChoiceUser) without break
+
                             break;
                         }
                         else {
                             takeComputerFlag = false;
                             userTurnFlag = true;
                         } }
-                       //if computer don`t take cards, calculation give back
+                       //if computer don`t take cards, calculation give back cards
                         if (!takeComputerFlag){ }
                     }
                 }
@@ -281,5 +283,79 @@ public class MainActivity extends AppCompatActivity {
             this.computerCard [i].setBackgroundResource(R.drawable.border);
         }
     }
+    public static int getUserBall() { return userBall;}
+    public static void setUserBall(int userBall) { MainActivity.userBall = userBall; }
+
+    public static int getComputerBall() { return computerBall; }
+    public static void setComputerBall(int computerBall) { MainActivity.computerBall = computerBall; }
+
+    public static int getCounter() { return counter; }
+    public static void setCounter(int counter) { MainActivity.counter = counter; }
+
+    public static int getTotalUser() { return totalUser; }
+    public static void setTotalUser(int totalUser) { MainActivity.totalUser = totalUser; }
+
+    public static int getTotalComp() { return totalComp; }
+    public static void setTotalComp(int totalComp) { MainActivity.totalComp = totalComp; }
+
+    public static int getCounterTrumpUser() { return counterTrumpUser; }
+    public static void setCounterTrumpUser(int counterTrumpUser) { MainActivity.counterTrumpUser = counterTrumpUser; }
+
+    public static int getCounterTrumpComputer() { return counterTrumpComputer; }
+    public static void setCounterTrumpComputer(int counterTrumpComputer) { MainActivity.counterTrumpComputer = counterTrumpComputer; }
+
+    public static boolean[] getChoiceFlag() { return choiceFlag; }
+    public static void setChoiceFlag(boolean[] choiceFlag) { MainActivity.choiceFlag = choiceFlag; }
+
+    public static boolean isUserTurnFlag() { return userTurnFlag; }
+    public static void setUserTurnFlag(boolean userTurnFlag) { MainActivity.userTurnFlag = userTurnFlag; }
+
+    public static boolean isTakeComputerFlag() { return takeComputerFlag; }
+    public static void setTakeComputerFlag(boolean takeComputerFlag) { MainActivity.takeComputerFlag = takeComputerFlag; }
+
+    public static ArrayList<Card> getCardsUserCurrent() { return cardsUserCurrent; }
+    public static void setCardsUserCurrent(ArrayList<Card> cardsUserCurrent) { MainActivity.cardsUserCurrent = cardsUserCurrent; }
+
+    public static ArrayList<Card> getCardsCopmputerCurrent() { return cardsCopmputerCurrent; }
+    public static void setCardsCopmputerCurrent(ArrayList<Card> cardsCopmputerCurrent) { MainActivity.cardsCopmputerCurrent = cardsCopmputerCurrent; }
+
+    public static ArrayList<Card> getCardsChoiceUser() { return cardsChoiceUser; }
+    public static void setCardsChoiceUser(ArrayList<Card> cardsChoiceUser) { MainActivity.cardsChoiceUser = cardsChoiceUser; }
+
+    public static List<Card> getSortedCardsChoiceUser() { return sortedCardsChoiceUser; }
+    public static void setSortedCardsChoiceUser(List<Card> sortedCardsChoiceUser) { MainActivity.sortedCardsChoiceUser = sortedCardsChoiceUser; }
+
+    public static List<Card> getSortedCardsUserCurrent() { return sortedCardsUserCurrent; }
+    public static void setSortedCardsUserCurrent(List<Card> sortedCardsUserCurrent) { MainActivity.sortedCardsUserCurrent = sortedCardsUserCurrent; }
+
+    public static List<Card> getSortedCardsCopmputerCurrent() { return sortedCardsCopmputerCurrent; }
+    public static void setSortedCardsCopmputerCurrent(List<Card> sortedCardsCopmputerCurrent) { MainActivity.sortedCardsCopmputerCurrent = sortedCardsCopmputerCurrent; }
+
+    public static ArrayList<Card> getCardsTakeUser() { return cardsTakeUser; }
+    public static void setCardsTakeUser(ArrayList<Card> cardsTakeUser) { MainActivity.cardsTakeUser = cardsTakeUser; }
+
+    public static ArrayList<Card> getCardsTakeComputer() { return cardsTakeComputer; }
+    public static void setCardsTakeComputer(ArrayList<Card> cardsTakeComputer) { MainActivity.cardsTakeComputer = cardsTakeComputer; }
+
+    public static ArrayList<Card> getCardsGiveBackUser() { return cardsGiveBackUser; }
+    public static void setCardsGiveBackUser(ArrayList<Card> cardsGiveBackUser) { MainActivity.cardsGiveBackUser = cardsGiveBackUser; }
+
+    public static ArrayList<Card> getCardsGiveBackComputer() { return cardsGiveBackComputer; }
+    public static void setCardsGiveBackComputer(ArrayList<Card> cardsGiveBackComputer) { MainActivity.cardsGiveBackComputer = cardsGiveBackComputer; }
+
+    public static ArrayList<Card> getCardsUserTakeAll() { return cardsUserTakeAll; }
+    public static void setCardsUserTakeAll(ArrayList<Card> cardsUserTakeAll) { MainActivity.cardsUserTakeAll = cardsUserTakeAll; }
+
+    public static ArrayList<Card> getCardsComputerTakeAll() { return cardsComputerTakeAll; }
+    public static void setCardsComputerTakeAll(ArrayList<Card> cardsComputerTakeAll) { MainActivity.cardsComputerTakeAll = cardsComputerTakeAll; }
+
+    public static Map<String, String> getResultTotal() { return resultTotal; }
+    public static void setResultTotal(Map<String, String> resultTotal) { MainActivity.resultTotal = resultTotal; }
+
+    public static Deck getDeck() { return deck; }
+    public static void setDeck(Deck deck) { MainActivity.deck = deck; }
+
+    public static Card getCardTrump() { return cardTrump; }
+    public static void setCardTrump(Card cardTrump) { MainActivity.cardTrump = cardTrump; }
 
 }
