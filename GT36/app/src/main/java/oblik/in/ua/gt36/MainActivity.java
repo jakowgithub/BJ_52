@@ -1,5 +1,6 @@
 package oblik.in.ua.gt36;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Controller controller = new Controller();
+        ReadWrite readWrite = new ReadWrite();
 
         for (byte i = 0; i < 4; i++) {
 
@@ -97,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         viewMain.setBackgroundColor(0xff43A047);
 
         try {
-            resultTotal.putAll(this.readFile());
+            resultTotal.putAll(readWrite.readFile(getApplicationContext()));
         } catch (Exception exp) {
             resultTotal.put(str4, "0");
             resultTotal.put(str5, "0");
@@ -159,55 +162,7 @@ public class MainActivity extends AppCompatActivity {
         this.computerCard [k].setBackgroundResource(R.drawable.border2);
         textViewInfo.setText(cardsCopmputerCurrent.get(k).toString());
     }
-    private void saveFile (Map <String, String> kIP){
 
-        if (kIP!=null && !kIP.isEmpty() &&
-            kIP.get(str4)!=null && kIP.get(str5)!=null) {
-
-            try {
-                FileOutputStream fileOutputStream = openFileOutput("gt36.txt", MODE_PRIVATE);
-
-                for (String Imya : kIP.keySet()) {
-                    String txt = Imya + " " + kIP.get(Imya);
-                    fileOutputStream.write(txt.getBytes());
-                    fileOutputStream.write(System.lineSeparator().getBytes());
-                }
-                fileOutputStream.close();
-
-            } catch (IOException ioe)   { ioe.printStackTrace(); }
-        } }
-
-    private Map <String, String> readFile(){
-        Map <String, String> kIP=new HashMap<>();
-        try {
-            FileInputStream fileInputStream = openFileInput("gt36.txt");
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-            String line;
-
-            while ((line = bufferedReader.readLine())!=null) {
-
-                String r2 = line.trim();
-
-                if (!r2.isEmpty()) {
-
-                    String imya = r2.substring(0, r2.indexOf(" ")).trim();
-
-                    String point = r2.substring(r2.indexOf(" ") + 1).trim();
-
-                    kIP.put(imya, point);
-                }}
-            fileInputStream.close();
-            bufferedReader.close();
-
-        } catch (Exception e) {
-            kIP.put(str4, "0");
-            kIP.put(str5, "0");
-            return kIP;
-        }
-        return kIP;
-    }
     public void showCardUser(int i, String text){
         if (i>=0 && i<4 && text!=null){
             this.userCard[i].setText(text);
