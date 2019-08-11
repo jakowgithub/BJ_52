@@ -240,7 +240,6 @@ public class MainActivity extends AppCompatActivity {
 
                        for (Card cardCopmputerCurrent: sortedCardsCopmputerCurrent){
 
-
                         if ((cardChoisUser.getSuitCard().equals(cardCopmputerCurrent.getSuitCard())
                              && cardChoisUser.getValueCard() < cardCopmputerCurrent.getValueCard())
                                 ||
@@ -250,16 +249,20 @@ public class MainActivity extends AppCompatActivity {
                             takeComputerFlag = true;
                             userTurnFlag = false;
 
+                            cardsTakeComputer.add(cardCopmputerCurrent);
+                            sortedCardsCopmputerCurrent.remove(cardCopmputerCurrent);
 
+                            cardsGiveBackUser.add(cardChoisUser);
+                            //cardChoisUser cann`t deleted an sortedCardsChoiceUser
+                            // in a loop  for (Card cardChoisUser: sortedCardsChoiceUser) without break
+                            break;
                         }
                         else {
                             takeComputerFlag = false;
                             userTurnFlag = true;
-                            break;
-                        }
-
-                       }
-
+                        } }
+                       //if computer don`t take cards, calculation give back
+                        if (!takeComputerFlag){ }
                     }
                 }
 
