@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Controller controller = new Controller();
         ReadWrite readWrite = new ReadWrite();
+        deck = new Deck();
 
         for (byte i = 0; i < 4; i++) {
 
@@ -99,24 +100,12 @@ public class MainActivity extends AppCompatActivity {
         View viewMain = this.getWindow().getDecorView();
         viewMain.setBackgroundColor(0xff43A047);
 
-        try {
-            resultTotal.putAll(readWrite.readFile(getApplicationContext()));
-        } catch (Exception exp) {
-            resultTotal.put(str4, "0");
-            resultTotal.put(str5, "0");
-        }
+        resultTotal.putAll(readWrite.readResultTotal(getApplicationContext()));
+        totalComp = readWrite.getTotalComp();
+        totalUser = readWrite.getTotalUser();
 
-        if (resultTotal.get(str4) != null &&
-            resultTotal.get(str5) != null) {
-
-            totalComp = Integer.parseInt(Objects.requireNonNull(resultTotal.get(str4)));
-            totalUser = Integer.parseInt(Objects.requireNonNull(resultTotal.get(str5)));
-        }
-
-        compTotal.setText(Objects.requireNonNull(resultTotal.get(str4)));
-        userTotal.setText(Objects.requireNonNull(resultTotal.get(str5)));
-
-        deck = new Deck();
+        compTotal.setText(Objects.requireNonNull(String.valueOf(totalComp)));
+        userTotal.setText(Objects.requireNonNull(String.valueOf(totalUser)));
 
         // issuing cards
         for (byte i = 0; i < 4; i++) {
@@ -128,17 +117,17 @@ public class MainActivity extends AppCompatActivity {
         //showTramp
         cardTrump = deck.getShuffleDeck().pollFirst();
         buttonStop.setText( cardTrump.toString());
-        //increase valueCard = +30, if it is trump
+        //increase valueCard = +100, if it is trump
         for (byte i = 0; i < 4; i++) {
             if (cardsUserCurrent.get(i).getSuitCard().equals(cardTrump.getSuitCard()))
-                cardsUserCurrent.get(i).setValueCard(cardsUserCurrent.get(i).getValueCard()+30);
+                cardsUserCurrent.get(i).setValueCard(cardsUserCurrent.get(i).getValueCard()+100);
 
             if (cardsCopmputerCurrent.get(i).getSuitCard().equals(cardTrump.getSuitCard()))
-                cardsCopmputerCurrent.get(i).setValueCard(cardsCopmputerCurrent.get(i).getValueCard()+30);
+                cardsCopmputerCurrent.get(i).setValueCard(cardsCopmputerCurrent.get(i).getValueCard()+100);
         }
         deck.getShuffleDeck().forEach(card -> {
             if (card.getSuitCard().equals(cardTrump.getSuitCard()))
-                card.setValueCard(card.getValueCard()+30);
+                card.setValueCard(card.getValueCard()+100);
         });
     }
     public void clickUserCard (int k, Deck deck){
