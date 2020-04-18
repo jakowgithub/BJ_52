@@ -1,0 +1,2 @@
+rootProject.name='BJ_52'
+include ':app'

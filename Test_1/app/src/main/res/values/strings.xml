@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Test_1</string>
+
+    <string name="new_game">New Game</string>
+    <string name="save">Save</string>
+    <string name="textview">TextView</string>
+    <string name="arange_the_numbers">Arange the numbers</string>
+
+
+</resources>

@@ -49,7 +49,7 @@ public class Deck {
 
         shuffleDeck = new LinkedList<>(initialDeck);
 
-        int w = (int) (Math.random() * 10000);
+        int w = (int) (Math.random() * 100);
 
         for (int i=0; i < w; i++){
 

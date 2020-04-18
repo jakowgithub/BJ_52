@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="compResult2" type="id" />
+    <item name="compResult" type="id" />
+    <item name="textViewInfo" type="id" />
+    <item name="userResult2" type="id" />
+    <item name="userResult" type="id" />
+    <item name="buttonNext" type="id" />
+    <item name="buttonStop" type="id" />
+</resources>

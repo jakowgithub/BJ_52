@@ -2,6 +2,9 @@ package oblik.in.ua.puzzle15;
 
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.*;
+import androidx.appcompat.app.*;
+
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
@@ -16,6 +19,9 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
+import static android.content.Context.MODE_PRIVATE;
+import static android.support.v4.graphics.drawable.IconCompat.getResources;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -272,12 +278,12 @@ private int pereverkaKinezGri(){
 
             for (byte j = 0; j < 4; j++) {
 
-                if ((3==i)&&(3==j)){
-                    if (0!= pole [3] [3]) return 0;
-                }
-                else{ if ((4*i+j+1) != pole [i] [j])  return 0;
-                }
+                if ((3==i)&&(3==j)) { if (0!= pole [3] [3]) return 0; }
+
+                else{ if ((4*i+j+1) != pole [i] [j])  return 0; }
             } }
       return 5;
     }
+
+
 }
