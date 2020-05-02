@@ -2,7 +2,6 @@ package oblik.in.ua.bj_52;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -176,12 +175,14 @@ public class MainActivity extends AppCompatActivity {
             this.userCard[i].setVisibility(View.VISIBLE);
             this.userCard[i].setText(text);
             this.userCard[i].setTextColor(Color.BLACK);
+            this.userCard[i].setTextSize(24);
         }}
     public void showCardComputer(int i, String text){
         if (i>=0 && i<8 && text!=null){
             this.computerCard [i].setVisibility(View.VISIBLE);
             this.computerCard [i].setText(text);
             this.computerCard [i].setTextColor(Color.BLACK);
+            this.computerCard [i].setTextSize(24);
         }}
     public void hideButton(){
         buttonNext.setClickable(false);
