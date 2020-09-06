@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Tetris_2</string>
+
+    <string name="STOP">stop</string>
+    <string name="TWIST">twist</string>
+    <string name="START">start</string>
+    <string name="LEFT">left</string>
+    <string name="RIGHT">right</string>
+    <string name="PAUSE">pause</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="todo">TODO</string>
+    <string name="SPEED">speed</string>
+
+</resources>
